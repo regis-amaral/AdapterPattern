@@ -1,4 +1,6 @@
-package com.examples;
+package com.examples.adapters;
+
+import com.examples.interfaces.ICotador;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
@@ -8,31 +10,20 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import com.examples.interfaces.ICotacaoXML;
+import com.examples.infrastructure.CotadorXML;
+import com.examples.interfaces.ICotacao;
 
-import resources.CotadorXML;
+public class CotacaoAdapterXML implements ICotacao {
 
-/**
- * Classe para consulta de cotações de moedas com retorno em XML
- * 
- * Pares de moedas disponíveis:
- * https://economia.awesomeapi.com.br/xml/available
- * 
- */
-public class CotacaoXML implements ICotacaoXML {
+    private ICotador cotador;
 
-    private CotadorXML cotador;
-
-    public CotacaoXML(){
-        cotador = new CotadorXML();
+    public CotacaoAdapterXML(CotadorXML cotador){
+        this.cotador = cotador;
     }
 
-    /**
-     * Retorna a cotação do par de moedas
-     */
     @Override
     public String getCotacao(String moedas) {
-        String xmlCotacao = cotador.getCambioXML(moedas);
+        String xmlCotacao = cotador.getCambio(moedas);
 
         try {
 

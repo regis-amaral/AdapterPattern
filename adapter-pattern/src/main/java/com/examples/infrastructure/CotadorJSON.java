@@ -1,4 +1,4 @@
-package resources;
+package com.examples.infrastructure;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -6,15 +6,18 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class CotadorXML{
+import com.examples.interfaces.ICotador;
 
-    public CotadorXML(){
+public class CotadorJSON implements ICotador{
+    
+    public CotadorJSON(){
         
     }
 
-    public String getCambioXML(String moedas){
-         try {
-            URL url = new URL("https://economia.awesomeapi.com.br/xml/" + moedas);
+    @Override
+    public String getCambio(String moedas){
+        try {
+            URL url = new URL("https://economia.awesomeapi.com.br/json/" + moedas);
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
 
@@ -29,14 +32,15 @@ public class CotadorXML{
                 }
                 in.close();
 
-                String xmlResponse = response.toString();
-                return xmlResponse;
+                String jsonResponse = response.toString();
+                
+                return jsonResponse;
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+            return null;
     }
 
 }

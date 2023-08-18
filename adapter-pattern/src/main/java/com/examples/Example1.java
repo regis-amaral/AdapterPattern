@@ -8,14 +8,14 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.NodeList;
 
-import resources.CotadorXML;
+import external_resources.CotadorXML;
 
 public class Example1 
 {
     public static void main( String[] args ){
         
         /**
-         *  Exemplo de código acoplado / sem abstração
+         *  Exemplo de código acoplado e com baixo nível de abstração
          */
         
          String moedas = "USD-BRL";

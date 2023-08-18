@@ -1,18 +1,18 @@
-package com.examples;
+package com.examples.services;
 
 import com.examples.interfaces.ICotacaoJSON;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
-import resources.CotadorJSON;
+import external_resources.CotadorJSON;
 
 public class CotacaoJSON implements ICotacaoJSON {
 
     private CotadorJSON cotador;
 
     public CotacaoJSON(){
-        cotador = new CotadorJSON();
+        cotador = new CotadorJSON(); // Ainda há acoplamento aqui!
     }
 
     /**

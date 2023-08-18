@@ -2,6 +2,8 @@ package com.examples;
 
 import com.examples.interfaces.ICotacaoJSON;
 import com.examples.interfaces.ICotacaoXML;
+import com.examples.services.CotacaoJSON;
+import com.examples.services.CotacaoXML;
 
 public class Exemplo3 {
     public static void main(String[] args) {
